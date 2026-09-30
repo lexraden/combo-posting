@@ -1,0 +1,93 @@
+From 69cf6792fd57db5bbeeb69468d18ca4e404a5b86 Mon Sep 17 00:00:00 2001
+From: Free Agent <freeagent@hermes.local>
+Date: Fri, 25 Sep 2026 04:27:22 +0000
+Subject: [PATCH] Initial scaffold: README, combo_posting package with hello
+ function, basic unit test
+
+---
+ README.md                 | 21 +++++++++++++++++++++
+ combo_posting/__init__.py |  1 +
+ combo_posting/main.py     |  9 +++++++++
+ tests/test_basic.py       | 14 ++++++++++++++
+ 4 files changed, 45 insertions(+)
+ create mode 100644 README.md
+ create mode 100644 combo_posting/__init__.py
+ create mode 100644 combo_posting/main.py
+ create mode 100644 tests/test_basic.py
+
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..4604dd9
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,21 @@
++# Combo Posting
++
++A minimal scaffold for a social media auto-posting tool.
++
++## Status
++
++This is a night-shift scaffold created to verify an empty repository and provide a minimal, verifiable result.
++
++## Structure
++
++- `combo_posting/` – Python package placeholder
++- `tests/` – Unit tests
++- `scripts/` – Helper scripts (if any)
++
++## Smoke Check
++
++Run the local smoke check without keys or network:
++
++```bash
++python -m unittest discover -v
++```
+\ No newline at end of file
+diff --git a/combo_posting/__init__.py b/combo_posting/__init__.py
+new file mode 100644
+index 0000000..e579b8f
+--- /dev/null
++++ b/combo_posting/__init__.py
+@@ -0,0 +1 @@
++# Combo Posting package
+\ No newline at end of file
+diff --git a/combo_posting/main.py b/combo_posting/main.py
+new file mode 100644
+index 0000000..362dce5
+--- /dev/null
++++ b/combo_posting/main.py
+@@ -0,0 +1,9 @@
++"""Main module for combo-posting."""
++
++def hello(name: str = "World") -> str:
++    """Return a greeting."""
++    return f"Hello, {name}!"
++
++
++if __name__ == "__main__":
++    print(hello())
+\ No newline at end of file
+diff --git a/tests/test_basic.py b/tests/test_basic.py
+new file mode 100644
+index 0000000..484222c
+--- /dev/null
++++ b/tests/test_basic.py
+@@ -0,0 +1,14 @@
++import unittest
++from combo_posting.main import hello
++
++
++class TestHello(unittest.TestCase):
++    def test_hello_default(self):
++        self.assertEqual(hello(), "Hello, World!")
++
++    def test_hello_name(self):
++        self.assertEqual(hello("Alice"), "Hello, Alice!")
++
++
++if __name__ == "__main__":
++    unittest.main()
+\ No newline at end of file
+-- 
+2.47.3
+
